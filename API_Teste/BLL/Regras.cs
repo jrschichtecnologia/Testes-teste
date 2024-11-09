@@ -56,7 +56,7 @@ namespace API_Teste.BLL
             string Risco = "Classificação não encontrada";
             foreach (var item in lst)
             {
-                if (value > item.ValorMin && value < item.ValorMax)
+                if (value > item.ValorMin && value <= item.ValorMax)
                     Risco = item.Risco;
             }
             return Risco;
