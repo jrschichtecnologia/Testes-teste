@@ -7,9 +7,9 @@ namespace API_Teste.BLL
     {
         private readonly List<dynamic> _params = new List<dynamic>
         {
-            new { Risco = "LOWRISK", Setor = "Public", ValorMin = 0, ValorMax=1000000},
-            new { Risco = "MEDIUMRISK", Setor = "Public", ValorMin = 1000000.01, ValorMax=double.MaxValue },
-            new { Risco = "HARDRISK", Setor = "Private", ValorMin = 1000000.01, ValorMax=double.MaxValue }
+            new { Risco = "LOWRISK", Setor = "Public", ValorMin = 0, ValorMax=1000000 },
+            new { Risco = "MEDIUMRISK", Setor = "Public", ValorMin = 1000000, ValorMax=double.MaxValue },
+            new { Risco = "HARDRISK", Setor = "Private", ValorMin = 1000000, ValorMax=double.MaxValue }
         };
         public Regras()
         {
@@ -56,7 +56,7 @@ namespace API_Teste.BLL
             string Risco = "Classificação não encontrada";
             foreach (var item in lst)
             {
-                if (value > item.ValorMin && value <= item.ValorMax)
+                if (value >= item.ValorMin && value < item.ValorMax)
                     Risco = item.Risco;
             }
             return Risco;
